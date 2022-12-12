@@ -1,0 +1,29 @@
+
+g	java:S125b"<This block of commented-out lines of code should be removed.(¡£òÌHÁRMAJORZ
+CODE_SMELL
+‘
+java:S2293V"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºýÿÿÿÿ8ƒÊ±¢™0HŠRMINORZ
+CODE_SMELL
+„
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(À›á<HÛRMINORZ
+CODE_SMELL
+‹
+java:S2293T"YReplace the type specification in this constructor call with the diamond operator ("<>").(À›á<8ƒÊ±¢™0HˆRMINORZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª²œ³HçRMINORZ
+CODE_SMELL
+Š
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºýÿÿÿÿHÝRMINORZ
+CODE_SMELL
+„
+java:S2293/"YReplace the type specification in this constructor call with the diamond operator ("<>").(À›á<HßRMINORZ
+CODE_SMELL
+Š
+java:S2293D"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºýÿÿÿÿHåRMINORZ
+CODE_SMELL
+„
+java:S2293B"YReplace the type specification in this constructor call with the diamond operator ("<>").(À›á<HãRMINORZ
+CODE_SMELL
+Š
+java:S22931"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ºöºýÿÿÿÿHáRMINORZ
+CODE_SMELL

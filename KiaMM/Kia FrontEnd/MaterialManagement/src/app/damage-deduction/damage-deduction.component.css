@@ -1,0 +1,197 @@
+.header {
+    padding: 1.5rem !important;
+    background-color: #f1f1f1;
+}
+
+.container {
+    align-items: center;
+    justify-content: space-between;
+}
+.sub-heading {
+    font-weight: bold;
+    color: #000000;
+}
+
+:host ::ng-deep .tabview-custom span {
+    margin: 0 .5rem;
+}
+
+:host ::ng-deep .tabview-custom i span {
+    vertical-align: middle;
+}
+
+:host ::ng-deep .p-button {
+    margin-right: .25rem;
+}
+
+:host ::ng-deep .p-tabview-nav-link {
+    background: #f1f1f1 !important;
+}
+
+:host ::ng-deep .p-dropdown {
+    width: 16rem;
+    height: 32px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+:host ::ng-deep .p-dropdown:not(.p-disabled):hover {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+}
+:host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+}
+:host ::ng-deep .p-inputtext {
+    padding: 0.2rem 0.5rem;
+    color: #000000;
+}
+:host ::ng-deep .p-dropdown .p-dropdown-label.p-placeholder {
+    color: #000000;
+}
+:host ::ng-deep .p-dropdown-clear-icon {
+    font-size: 12px;
+    padding: 0.2rem 0.5rem;
+    font-weight: bold;
+}
+:host ::ng-deep .p-dropdown-trigger-icon {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+:host ::ng-deep .p-dropdown-item {
+    border-bottom: 2px solid #ccc !important;
+    color: #000000 !important;
+}
+
+:host ::ng-deep .p-tabview-nav {
+    background: #f1f1f1 !important;
+}
+
+:host ::ng-deep tr :hover {
+    cursor: pointer;
+}
+
+
+:host ::ng-deep .p-datatable .p-datatable-thead>tr>th {
+    background: #ccc;
+    font-weight: 500;
+    color: #000000;
+    width: 200px;
+}
+
+
+:host ::ng-deep .p-datatable .p-datatable-tbody>tr>td {
+    font-weight: 400;
+    color: #000000;
+    border-bottom: 1px solid #ccc;
+}
+
+.row-content {
+    margin-top: 1rem;
+    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 0 0 2rem 1rem;
+}
+.drop-down-label {
+    color: #000000;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: .9rem;
+}
+
+:host ::ng-deep .p-tabview-panels {
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+:host ::ng-deep .p-tabview p {
+    line-height: 1.5;
+    margin: 0;
+}
+
+:host ::ng-deep .p-tabview-title {
+    font-weight: 500;
+    color: #000000;
+}
+
+:host ::ng-deep .p-highlight {
+    font-weight: 500;
+    color: #000000;
+    box-shadow: none !important;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+    box-shadow: none !important;
+}
+
+:host ::ng-deep .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+    border-color: red;
+    border-width: 0 0 3px 0;
+}
+
+.heading {
+    font-weight: bold;
+}
+.search-button {
+    margin-top: 1.4rem;
+    height: 34px;
+    border-radius: 5px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight: 450;
+    width: 95px;
+}
+.second-content {
+    margin-top: 1.3rem;
+}
+.update-button {
+    margin-top: 1.4rem;
+    height: 34px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+    color: #000000;
+    font-weight: 450;
+    width: 90px;
+}
+:host ::ng-deep .p-dialog .p-dialog-footer {
+    text-align: center !important;
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+}
+:host ::ng-deep .p-button.p-button-text:enabled:hover {
+    border-radius: 5px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+:host ::ng-deep .p-button {
+    border-radius: 5px;
+    border: 2px solid #000000;
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+:host ::ng-deep .p-dialog {
+    border-radius: 10px !important;
+    width: 30vw !important;
+    height: 25vw !important;
+}
+:host ::ng-deep .p-dialog-title {
+    color: #000000;
+}
+:host ::ng-deep .p-dialog-header-close-icon {
+    color: red;
+}
+:host ::ng-deep .p-inputnumber-input {
+    width: 45px !important;
+}
+.damage-quantity {
+    color: #000000;
+    font-weight: 500;
+}
+.radio-button {
+    color: #000000;
+    font-weight: 450;;
+}

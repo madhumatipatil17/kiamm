@@ -1,0 +1,96 @@
+.product-request-page {
+    background: #ccc;
+}
+.header {
+    padding: 1rem;
+}
+.heading {
+    font-weight: bold;
+}
+.page-content {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+.image-icon {
+    position: absolute;
+    top: 35%;
+    padding-left: 6.5rem;
+}
+.column {
+    float: left;
+    height: 250px;
+    width: 250px;
+    position: relative;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+.choose-file {
+    position: absolute;
+    top: 45%;
+    padding: 0 1rem;
+    text-align: center;
+}
+.select {
+    color: blue;
+}
+.request-form {
+    padding: 0 2rem;
+}
+
+input:focus {
+   border: 1px solid #ccc !important;
+   box-shadow: none !important;
+}
+label {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+textarea:focus {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+ }
+
+:host ::ng-deep .p-checkbox-box {
+    border: 2px solid #ccc !important;
+    box-shadow: none !important;
+    background: #ccc !important;
+  }
+:host ::ng-deep .p-checkbox-icon {
+    color: #000000 !important;
+    font-weight: bold !important;
+  }
+:host ::ng-deep .p-dropdown {
+    width: 15.2rem;
+    height: 37px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+:host ::ng-deep .p-dropdown:not(.p-disabled):hover {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+}
+:host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+}
+
+:host ::ng-deep .p-inputtext {
+    padding: 0.2rem 0.5rem;
+}
+
+:host ::ng-deep .p-dropdown-clear-icon {
+    font-size: 12px;
+    padding: 0.2rem 0.5rem;
+    font-weight: bold;
+}
+:host ::ng-deep .p-dropdown-trigger-icon {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+:host ::ng-deep .p-dropdown-item {
+    border-bottom: 2px solid #ccc !important;
+    color: #000000 !important;
+}

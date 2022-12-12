@@ -1,0 +1,115 @@
+<div class="card header">
+  <div class="row">
+    <div class="container d-flex">
+      <div class="col-md-4">
+        <h5>Add Stock</h5>
+      </div>
+    </div>
+  </div>
+
+  <div class="add-inventory" (click)="showDialog()">
+
+    <button pButton type="button" label="Add Item to Inventory" class="p-button-secondary p-button-sm"></button>
+  </div>
+  <p-dialog header="Header" [(visible)]="displayModal" [modal]="true" [style]="{width: '40vw'}" [baseZIndex]="10000"
+
+            [draggable]="false" [resizable]="false">
+    <app-additems></app-additems>
+
+  </p-dialog>
+
+  <p-tabView>
+    <p-tabPanel header="Pending for Approval">
+      <div class="card">
+        <p-table [value]="addedstock" [rowsPerPageOptions]="[10,25,50]"
+                 [rows]="10" [showCurrentPageReport]="true"
+                 [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Item Name</th>
+              <th>Category</th>
+              <th pSortableColumn="request_department">Part Number
+                <p-sortIcon field="category"></p-sortIcon>
+              </th>
+              <th pSortableColumn="request_section">Purchase Order Number/DC
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th pSortableColumn="order_type">Purchase Order Quantity
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th pSortableColumn="requested_on">Invoice Number
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th pSortableColumn="status">Invoice Quantity
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th pSortableColumn="status">Received Date
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+             
+
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-stock>
+            <tr>
+
+              <td><a routerLink="/stock/{{stock.productname}}" (click)="onSelect(stock)">{{stock.productname}}</a>
+              </td>
+
+              <td>{{stock.catogery}}</td>
+              <td>{{stock.partnumber}}</td>
+              <td>{{stock.purchaseorderno}}</td>
+              <td>{{stock.purchaseorderqty }}</td>
+              <td>{{stock.invoiceno }}</td>
+              <td>{{stock.invoiceqty }}</td>
+              <td>{{stock.reciveddate  | date: 'dd/MM/yyyy' }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-tabPanel>
+
+
+    <p-tabPanel header="Approved">
+      <div class="card">
+        <p-table [value]="receivedOrders" [rowsPerPageOptions]="[10,25,50]"
+                 [rows]="10" [showCurrentPageReport]="true"
+                 [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Order Number</th>
+              <th>Request By</th>
+              <th pSortableColumn="request_department">Request Department
+                <p-sortIcon field="category"></p-sortIcon>
+              </th>
+              <th pSortableColumn="request_section">Request Section
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th pSortableColumn="order_type">Order Type
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th pSortableColumn="requested_on">Requested On
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th pSortableColumn="status">Status
+                <p-sortIcon field="type"></p-sortIcon>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{product.order_number}}</td>
+              <td>{{product.request_by}}</td>
+              <td>{{product.request_department}}</td>
+              <td>{{product.request_section}}</td>
+              <td>{{product.order_type }}</td>
+              <td>{{product.requested_on }}</td>
+              <td>{{product.status }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+
+</div>

@@ -1,0 +1,186 @@
+<div class="container">
+
+  <div class="row">
+    <div class="container d-flex">
+      <div class="col-md-4">
+        <h5>< {{productname}}</h5>
+      </div>
+    </div>
+
+  </div>
+  <p-tabView>
+    <p-tabPanel header="Item Details">
+
+      <div class="card">
+        <p-table [value]="items">
+
+          <ng-template pTemplate="body" let-item>
+            <h5 style="margin: 1cm;  margin-bottom: -1cm">Latest Updated Details</h5><br>
+            <div class=" row" style="margin: 1cm">
+              <div class="col">
+                Item Name
+              </div>
+              <div class="col">
+                <span> &#58; {{item.productname}}</span>
+              </div>
+              <div class="col">
+                Date Updated
+              </div>
+              <div class="col">
+                <span>&#58; {{item.reciveddate  | date: 'dd/MM/yyyy'}}</span>
+              </div>
+
+            </div>
+
+
+            <div class="row" style="margin: 1cm">
+              <div class="col">
+                Purchase Order
+                Number
+              </div>
+              <div class="col">
+                <span> &#58; {{item.purchaseorderno}}</span>
+              </div>
+              <div class="col">
+                Purchase Order
+                Quantity
+              </div>
+              <div class="col">
+                <span>&#58; {{item.purchaseorderqty}}</span>
+              </div>
+
+            </div>
+            <div class="row" style="margin: 1cm">
+              <div class="col">
+                Invoice Number
+              </div>
+              <div class="col">
+                <span> &#58; {{item.invoiceno}}</span>
+              </div>
+              <div class="col">
+                Invoice Quantity
+              </div>
+              <div class="col">
+                <span>&#58; {{item.invoiceqty }}</span>
+              </div>
+            </div>
+          </ng-template>
+        </p-table>
+        <hr>
+        <p-table [value]="specifications">
+          <ng-template pTemplate="body" let-specifications>
+            <h5 style="margin: 1cm;  margin-bottom: -1cm">Specifications</h5><br>
+            <div class="row" style="margin: 1cm">
+              <div class="col">
+                PartNumber
+              </div>
+              <div class="col">
+                <span>&#58; {{specifications.partnumber}} </span>
+              </div>
+
+              <div class="col">
+                Catogery
+              </div>
+              <div class="col">
+                <span>&#58; {{specifications.catogery}} </span>
+              </div>
+
+            </div>
+            <div class="row" style="margin: 1cm">
+              <div class="col">
+                Type
+
+              </div>
+              <div class="col">
+                <span>&#58; {{specifications.entiytype  }} </span>
+              </div>
+
+              <div class="col">
+                Length
+
+              </div>
+              <div class="col">
+                <span>&#58; {{specifications.lentgh}} </span>
+              </div>
+
+            </div>
+            <div class="row" style="margin: 1cm">
+              <div class="col">
+                Dia(mm)
+
+
+              </div>
+              <div class="col">
+                <span>&#58; {{specifications.dia    }} </span>
+              </div>
+
+              <div class="col">
+                Drive Size
+              </div>
+              <div class="col">
+                <span>&#58; {{specifications.drivesize}} </span>
+              </div>
+
+            </div>
+
+            <div class="row" style="margin: 1cm">
+              <div class="col">
+                Quantity
+
+              </div>
+              <div class="col">
+                <span>&#58; {{specifications.quantity}} </span>
+              </div>
+
+              <div class="col">
+
+              </div>
+              <div class="col">
+
+              </div>
+
+            </div>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-tabPanel>
+
+
+    <p-tabPanel header="History">
+      <div class="card">
+        <p-table [value]="history" [rowsPerPageOptions]="[10,25,50]"
+                 [rows]="10" [showCurrentPageReport]="true"
+                 [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Date</th>
+              <th>Purcahase Order No</th>
+              <th>Purchase Order Quantity
+              </th>
+              <th>Invoice Number
+              </th>
+              <th>Invoice Quantity
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-stock>
+            <tr>
+
+              <td>{{stock.reciveddate  | date: 'dd/MM/yyyy'}}
+              </td>
+
+              <td>{{stock.purchaseorderno}}</td>
+              <td>{{stock.purchaseorderqty}}</td>
+              <td>{{stock.invoiceno}}</td>
+              <td>{{stock.invoiceqty }}</td>
+
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </p-tabPanel>
+  </p-tabView>
+
+</div>
+
+

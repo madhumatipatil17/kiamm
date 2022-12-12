@@ -1,0 +1,129 @@
+.shopping-cart {
+    margin: 1rem 0 0 1rem;
+ }
+ .line-dropdown {
+     font-weight: bold;
+     font-size: 14px;
+     line-height: 30px;
+ }
+ .place-order {
+     font-weight: bold;
+     font-size: 16px;
+ }
+ .shopping-items {
+     background-color: #ccc;
+ }
+ .shopping-items-col {
+     margin: 0 1rem;
+ }
+ .columns {
+     padding: 0 !important;
+     margin: 1rem 0 0 0;
+     display: flex;
+ }
+ .card {
+     margin: 0 0.3rem 0.3rem 0rem;
+     height: 20rem;
+     background-color: #f1f1f1;
+     padding: 0rem 0.5rem 1rem 0.5rem;
+ }
+ .card-content {
+     padding: 0 !important;
+ }
+ .card-img-top {
+     width: 130px;
+     height: 130px;
+     margin: auto;
+     
+ }
+ .image {
+     display: flex;
+     height: 150px;
+ }
+ .checkbox {
+     padding-left: 5px;
+ }
+ .check-image {
+     border: 1px solid #ccc;
+     border-radius: 5px;
+     margin: 10px 0px 5px 0px;
+ }
+ .card-body {
+     padding: 0 !important;
+ }
+ .card-title {
+     font-size: 14px;
+     font-weight: bold;
+     margin: 0 !important;
+ }
+ .card-text {
+     font-size: 12px;
+     font-weight: 500;
+     margin-bottom: 2px !important;
+ }
+ .cart-button {
+     border-radius: 5px;
+     background-color: #999191;
+     color: #ffffff;
+     border: none;
+     padding: 0 18px;
+ }
+ .search-box {
+     height: 32px;
+     width: 300px;
+     background-color: #ccc;
+     border-radius: 5px;
+     border: 1px solid gray;
+ }
+ .pi-search {
+     font-weight: bold;
+     color: black !important;
+ }
+   input:focus {
+     outline: none !important;
+ }
+ :host ::ng-deep .p-checkbox-box {
+     border: 2px solid #ccc !important;
+     box-shadow: none !important;
+     background: #ccc !important;
+   }
+ :host ::ng-deep .p-checkbox-icon {
+     color: #000000 !important;
+     font-weight: bold !important;
+   }
+ :host ::ng-deep .p-dropdown {
+     width: 16rem;
+     height: 32px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+ }
+ :host ::ng-deep .p-dropdown:not(.p-disabled):hover {
+     border: 1px solid #ccc !important;
+     box-shadow: none !important;
+ }
+ :host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+     border: 1px solid #ccc !important;
+     box-shadow: none !important;
+ }
+ 
+ :host ::ng-deep .p-inputtext {
+     padding: 0.2rem 0.5rem;
+ }
+ :host ::ng-deep .p-inputtext {
+     padding: 0.2rem 0.5rem;
+ }
+ 
+ :host ::ng-deep .p-dropdown-clear-icon {
+     font-size: 12px;
+     padding: 0.2rem 0.5rem;
+     font-weight: bold;
+ }
+ :host ::ng-deep .p-dropdown-trigger-icon {
+     font-size: 12px;
+     font-weight: bold;
+     margin-top: 2px;
+ }
+ :host ::ng-deep .p-dropdown-item {
+     border-bottom: 2px solid #ccc !important;
+     color: #000000 !important;
+ }

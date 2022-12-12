@@ -1,0 +1,33 @@
+
+U
+java:S1452S"&Remove usage of generic wildcard type.(ïø‡ïHúRCRITICALZ
+CODE_SMELL
+r
+java:S34571"AFormat specifiers should be used instead of string concatenation.(œæÃµüÿÿÿÿHøRMAJORZ
+CODE_SMELL
+m
+java:S3457="AFormat specifiers should be used instead of string concatenation.(½Æ±–HùRMAJORZ
+CODE_SMELL
+Š
+java:S2293U"YReplace the type specification in this constructor call with the diamond operator ("<>").(ŸŠæäüÿÿÿÿHûRMINORZ
+CODE_SMELL
+h
+java:S2629$"7Use the built-in formatting to construct this argument.(ëû‚ıÿÿÿÿHıRMAJORZ
+CODE_SMELL
+j
+java:S2629I"7Use the built-in formatting to construct this argument.(ßŠ 8›™µ¢™0H°RMAJORZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(©È›·H€RMINORZ
+CODE_SMELL
+t
+java:S3457I"AFormat specifiers should be used instead of string concatenation.(ßŠ 8›™µ¢™0H¯RMAJORZ
+CODE_SMELL
+c
+java:S2629="7Use the built-in formatting to construct this argument.(½Æ±–HÿRMAJORZ
+CODE_SMELL
+h
+java:S26291"7Use the built-in formatting to construct this argument.(œæÃµüÿÿÿÿHşRMAJORZ
+CODE_SMELL
+r
+java:S3457$"AFormat specifiers should be used instead of string concatenation.(ëû‚ıÿÿÿÿH÷RMAJORZ
+CODE_SMELL

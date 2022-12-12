@@ -1,0 +1,24 @@
+
+h
+java:S26294"7Use the built-in formatting to construct this argument.(ú“¨şÿÿÿÿH¶RMAJORZ
+CODE_SMELL
+r
+java:S3457T"AFormat specifiers should be used instead of string concatenation.(ú“¨şÿÿÿÿH´RMAJORZ
+CODE_SMELL
+r
+java:S34574"AFormat specifiers should be used instead of string concatenation.(ú“¨şÿÿÿÿH³RMAJORZ
+CODE_SMELL
+b
+java:S2629a"7Use the built-in formatting to construct this argument.(ùä«)H¸RMAJORZ
+CODE_SMELL
+d
+java:S2589k"8Remove this expression which always evaluates to "false"(Ÿ×®³HºRMAJORZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª²œ³H¹RMINORZ
+CODE_SMELL
+h
+java:S2629T"7Use the built-in formatting to construct this argument.(ú“¨şÿÿÿÿH·RMAJORZ
+CODE_SMELL
+l
+java:S3457a"AFormat specifiers should be used instead of string concatenation.(ùä«)HµRMAJORZ
+CODE_SMELL

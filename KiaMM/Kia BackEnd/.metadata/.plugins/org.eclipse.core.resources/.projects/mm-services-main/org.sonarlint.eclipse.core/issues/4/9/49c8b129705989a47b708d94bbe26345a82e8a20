@@ -1,0 +1,15 @@
+
+r
+java:S3457("AFormat specifiers should be used instead of string concatenation.(ÆûþÂùÿÿÿÿHËRMAJORZ
+CODE_SMELL
+—
+java:S1319"kThe type of "productList" should be an interface such as "List" rather than the implementation "ArrayList".(âº‹âHÌRMINORZ
+CODE_SMELL
+h
+java:S2629("7Use the built-in formatting to construct this argument.(ÆûþÂùÿÿÿÿHÏRMAJORZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ª²œ³HÐRMINORZ
+CODE_SMELL
+i
+java:S2589"8Remove this expression which always evaluates to "false"(ª¶ž”þÿÿÿÿHÑRMAJORZ
+CODE_SMELL

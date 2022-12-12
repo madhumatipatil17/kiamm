@@ -1,0 +1,53 @@
+
+r
+java:S46842"@Replace this persistent entity with a simple POJO or DTO object.(¶Úô¬HRCRITICALZVULNERABILITY
+{
+java:S44880"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(å•ÅÇşÿÿÿÿH‚RMINORZ
+CODE_SMELL
+m
+java:S34574"AFormat specifiers should be used instead of string concatenation.(Ï¡ŞúH„RMAJORZ
+CODE_SMELL
+r
+java:S4684@"@Replace this persistent entity with a simple POJO or DTO object.(¶Úô¬H…RCRITICALZVULNERABILITY
+y
+java:S4488>"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(ñç±ˆÿÿÿÿÿH†RMINORZ
+CODE_SMELL
+r
+java:S3457B"AFormat specifiers should be used instead of string concatenation.(ŞŞÎ‚ûÿÿÿÿHˆRMAJORZ
+CODE_SMELL
+
+java:S4488P"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(Ù•ñûùÿÿÿÿH‰RMINORZ
+CODE_SMELL
+r
+java:S3457R"AFormat specifiers should be used instead of string concatenation.(¨ºÉøÿÿÿÿH‹RMAJORZ
+CODE_SMELL
+r
+java:S3457c"AFormat specifiers should be used instead of string concatenation.(±Ë£ùÿÿÿÿHŒRMAJORZ
+CODE_SMELL
+K
+java:S3751n"Make this method non "private".(øù¸öHRMAJORZ
+CODE_SMELL
+z	java:S100„"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñÉìÕHRMINORZ
+CODE_SMELL
+|	java:S117n"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(øù¸öHRMINORZ
+CODE_SMELL
+	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½’ÎşúÿÿÿÿHRMINORZ
+CODE_SMELL
+	java:S117o"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½’ÎşúÿÿÿÿH‘RMINORZ
+CODE_SMELL
+|	java:S117Š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢™“H’RMINORZ
+CODE_SMELL
+c
+java:S26294"7Use the built-in formatting to construct this argument.(Ï¡ŞúH“RMAJORZ
+CODE_SMELL
+h
+java:S2629B"7Use the built-in formatting to construct this argument.(ŞŞÎ‚ûÿÿÿÿH”RMAJORZ
+CODE_SMELL
+h
+java:S2629R"7Use the built-in formatting to construct this argument.(¨ºÉøÿÿÿÿH•RMAJORZ
+CODE_SMELL
+h
+java:S2629c"7Use the built-in formatting to construct this argument.(±Ë£ùÿÿÿÿH–RMAJORZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(©È›·H—RMINORZ
+CODE_SMELL

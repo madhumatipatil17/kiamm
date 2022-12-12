@@ -1,0 +1,22 @@
+package com.materialmanagement.Service;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public interface EntityDataService {
+
+	public List<Map<String, Object>> getAllProductCategory();
+
+	public List<Map<String, Object>> getAllProductType();
+
+	public List<Map<String, Object>> getVolumn();
+
+	public List<Map<String, Object>> getLine();
+
+//	public Map<String, Object> getProductCategoryByCode(String code);
+//
+//	public Map<String, Object> getProductTypeByCode(String code);
+}

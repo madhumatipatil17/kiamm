@@ -1,0 +1,59 @@
+<div class="shopping-cart">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="line-dropdown">Select the Line you are Placed in</p>
+        </div>
+        <div class="col-md-9">
+            <p-dropdown class="choose-line" [options]="lines" [(ngModel)]="selectedLine" placeholder="Choose line"
+                optionLabel="name" [showClear]="true"></p-dropdown>
+        </div>
+    </div>
+</div>
+<div class="shopping-items">
+    <div class="row shopping-items-col">
+        <div class="row">
+            <div class="container d-flex columns">
+                <div class="col-md-4">
+                    <p class="place-order">Place order</p>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex" style="float: right;">
+                        <span class="p-input-icon-right">
+                            <i class="pi pi-search"></i>
+                            <input type="text" class="search-box" pInputText placeholder="Search" 
+                            (keyup.enter)="findProductsWithCategory($event.target)">
+                        </span>
+                        <p-dropdown class="ml-3 accessories" [options]="categories" [(ngModel)]="selectedAccessories"
+                        (onChange)="dataWithKeyword($event)" 
+                            placeholder="Choose Category" optionLabel="name" [showClear]="true"></p-dropdown>
+                        <button class="ml-3 cart-button" (click)="addTocart()"> + Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shopping-details">
+            <div class="row">
+                <div class="col-sm-2 card-content" *ngFor="let product of products; index as i">
+                    <div class="card">
+                        <div class="check-image">
+                            <p-checkbox name="groupname" [value]="product.prodMasterId" class="checkbox" [(ngModel)]="checked"
+                                inputId="binary" (onChange)="checkBoxValue(checked)"></p-checkbox>
+                            <div class="image">
+                                <img [src]="product.imgLocation |safeUrl" class="card-img-top" alt="...">
+                                <!-- [src]="product.imgLocation" -->
+                                 <!-- [src]="product.imgLocation |safeUrl" -->
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div style="height: 40px; overflow: auto;">
+                                <h5 class="card-title">{{product.prodName}}</h5>
+                            </div>
+                            <p class="card-text">{{product.category}}</p>
+                            <p class="card-text">{{product.productType}}</p>
+                            <p class="card-text">Part number: {{product.partNumber}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

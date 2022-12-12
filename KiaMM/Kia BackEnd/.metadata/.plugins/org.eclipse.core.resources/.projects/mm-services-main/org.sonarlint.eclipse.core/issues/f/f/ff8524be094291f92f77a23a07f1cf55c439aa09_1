@@ -1,0 +1,13 @@
+
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(×²³HַRMINORZ
+CODE_SMELL
+r
+java:S34578"AFormat specifiers should be used instead of string concatenation.(ֶüטתÿÿÿÿHִRMAJORZ
+CODE_SMELL
+‰
+java:S2229&"]"getRequestNumber's" @Transactional requirement is incompatible with the one for this method.(ח—‰שÿÿÿÿHֲRBLOCKERZBUG
+	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ח—‰שÿÿÿÿHֵRMINORZ
+CODE_SMELL
+h
+java:S26298"7Use the built-in formatting to construct this argument.(ֶüטתÿÿÿÿHֶRMAJORZ
+CODE_SMELL

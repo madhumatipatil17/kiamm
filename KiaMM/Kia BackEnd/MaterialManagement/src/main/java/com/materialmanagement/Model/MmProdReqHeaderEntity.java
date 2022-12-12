@@ -1,0 +1,277 @@
+package com.materialmanagement.Model;
+
+import java.sql.Timestamp;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "mm_prod_req_header")
+public class MmProdReqHeaderEntity {
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "PROD_REQ_HDR_ID")
+	private int prodReqHdrId;
+
+	@Column(name = "REQ_NBR")
+	private String reqNbr;
+
+	@NotNull(message = "Request date not be a null value")
+	@Column(name = "REQ_DATE")
+	private Timestamp reqDate;
+	
+	@NotNull(message = "Request department not be a null value")
+	@Column(name = "REQ_DEPT")
+	private Integer reqDept;
+	
+	@NotNull(message = "Request section not be a null value")
+	@Column(name = "REQ_SECTION")
+	private Integer reqSection;
+	
+	@NotNull(message = "Request line not be a null value")
+	@Column(name = "REQ_LINE")
+	private Integer reqLine;
+	
+	@NotNull(message = "Requested by not be a null value")
+	@Column(name = "REQUESTED_BY")
+	private Integer requestedBy;
+	
+	@NotNull(message = "Order type not be a null value")
+	@NotBlank(message = "Invalid Order type")
+	@Column(name = "ORDER_TYPE")
+	private String orderType;
+	
+	@NotNull(message = "PRCS_STATUS_ID not be a null value")
+	@Column(name = "PRCS_STATUS_ID")
+	private Integer prcsStatusId;
+
+	@Column(name = "STATUS_ID")
+	private Integer statusId;
+	
+	@NotNull(message = "SIC_COMMENTS not be a null value")
+	@NotBlank(message = "Invalid SIC_COMMENTS")
+	@Column(name = "SIC_COMMENTS")
+	private String sicComments;
+	
+	@NotNull(message = "AIC_COMMENTS not be a null value")
+	@NotBlank(message = "Invalid AIC_COMMENTS")
+	@Column(name = "AIC_COMMENTS")
+	private String aicComments;
+
+	@Column(name = "ISSUED_BY")
+	private Integer issuedBy;
+
+	@Column(name = "ISSUED_DATE")
+	private Timestamp issuedDate;
+	
+	@NotNull(message = "CREATED_BY not be a null value")
+	@Column(name = "CREATED_BY")
+	private int createdBy;
+	
+	private Timestamp createdOn;
+
+	@Column(name = "UPDATED_BY")
+	private Integer updatedBy;
+
+	@Column(name = "UPDATED_ON")
+	private Timestamp updatedOn;
+
+	public int getProdReqHdrId() {
+		return prodReqHdrId;
+	}
+
+	public void setProdReqHdrId(int prodReqHdrId) {
+		this.prodReqHdrId = prodReqHdrId;
+	}
+
+	public String getReqNbr() {
+		return reqNbr;
+	}
+
+	public void setReqNbr(String reqNbr) {
+		this.reqNbr = reqNbr;
+	}
+
+	public Timestamp getReqDate() {
+		return reqDate;
+	}
+
+	public void setReqDate(Timestamp reqDate) {
+		this.reqDate = reqDate;
+	}
+
+	public Integer getReqDept() {
+		return reqDept;
+	}
+
+	public void setReqDept(Integer reqDept) {
+		this.reqDept = reqDept;
+	}
+
+	public Integer getReqSection() {
+		return reqSection;
+	}
+
+	public void setReqSection(Integer reqSection) {
+		this.reqSection = reqSection;
+	}
+
+	public Integer getReqLine() {
+		return reqLine;
+	}
+
+	public void setReqLine(Integer reqLine) {
+		this.reqLine = reqLine;
+	}
+
+	public Integer getRequestedBy() {
+		return requestedBy;
+	}
+
+	public void setRequestedBy(Integer requestedBy) {
+		this.requestedBy = requestedBy;
+	}
+
+	public String getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+	}
+
+	public Integer getPrcsStatusId() {
+		return prcsStatusId;
+	}
+
+	public void setPrcsStatusId(Integer prcsStatusId) {
+		this.prcsStatusId = prcsStatusId;
+	}
+
+	public Integer getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(Integer statusId) {
+		this.statusId = statusId;
+	}
+
+	public String getSicComments() {
+		return sicComments;
+	}
+
+	public void setSicComments(String sicComments) {
+		this.sicComments = sicComments;
+	}
+
+	public String getAicComments() {
+		return aicComments;
+	}
+
+	public void setAicComments(String aicComments) {
+		this.aicComments = aicComments;
+	}
+
+	public Integer getIssuedBy() {
+		return issuedBy;
+	}
+
+	public void setIssuedBy(Integer issuedBy) {
+		this.issuedBy = issuedBy;
+	}
+
+	public Timestamp getIssuedDate() {
+		return issuedDate;
+	}
+
+	public void setIssuedDate(Timestamp issuedDate) {
+		this.issuedDate = issuedDate;
+	}
+
+	public int getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(int createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public Timestamp getCreatedOn() {
+		return createdOn;
+	}
+
+	public void setCreatedOn(Timestamp createdOn) {
+		this.createdOn = createdOn;
+	}
+
+	public Integer getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(Integer updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public Timestamp getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(Timestamp updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	@Override
+	public String toString() {
+		return "MmProdReqHeaderEntity [prodReqHdrId=" + prodReqHdrId + ", reqNbr=" + reqNbr + ", reqDate=" + reqDate
+				+ ", reqDept=" + reqDept + ", reqSection=" + reqSection + ", reqLine=" + reqLine + ", requestedBy="
+				+ requestedBy + ", orderType=" + orderType + ", prcsStatusId=" + prcsStatusId + ", statusId=" + statusId
+				+ ", sicComments=" + sicComments + ", aicComments=" + aicComments + ", issuedBy=" + issuedBy
+				+ ", issuedDate=" + issuedDate + ", createdBy=" + createdBy + ", createdOn=" + createdOn
+				+ ", updatedBy=" + updatedBy + ", updatedOn=" + updatedOn + "]";
+	}
+
+	
+	public MmProdReqHeaderEntity(int prodReqHdrId, String reqNbr,
+			@NotNull(message = "Request date not be a null value") Timestamp reqDate,
+			@NotNull(message = "Request department not be a null value") Integer reqDept,
+			@NotNull(message = "Request section not be a null value") Integer reqSection,
+			@NotNull(message = "Request line not be a null value") Integer reqLine,
+			@NotNull(message = "Requested by not be a null value") Integer requestedBy,
+			@NotNull(message = "Order type not be a null value") @NotBlank(message = "Invalid Order type") String orderType,
+			@NotNull(message = "PRCS_STATUS_ID not be a null value") Integer prcsStatusId, Integer statusId,
+			@NotNull(message = "SIC_COMMENTS not be a null value") @NotBlank(message = "Invalid SIC_COMMENTS") String sicComments,
+			@NotNull(message = "AIC_COMMENTS not be a null value") @NotBlank(message = "Invalid AIC_COMMENTS") String aicComments,
+			Integer issuedBy, Timestamp issuedDate, @NotNull(message = "CREATED_BY not be a null value") int createdBy,
+			Timestamp createdOn, Integer updatedBy, Timestamp updatedOn) {
+		super();
+		this.prodReqHdrId = prodReqHdrId;
+		this.reqNbr = reqNbr;
+		this.reqDate = reqDate;
+		this.reqDept = reqDept;
+		this.reqSection = reqSection;
+		this.reqLine = reqLine;
+		this.requestedBy = requestedBy;
+		this.orderType = orderType;
+		this.prcsStatusId = prcsStatusId;
+		this.statusId = statusId;
+		this.sicComments = sicComments;
+		this.aicComments = aicComments;
+		this.issuedBy = issuedBy;
+		this.issuedDate = issuedDate;
+		this.createdBy = createdBy;
+		this.createdOn = createdOn;
+		this.updatedBy = updatedBy;
+		this.updatedOn = updatedOn;
+	}
+
+	public MmProdReqHeaderEntity() {
+		super();
+	}
+
+}

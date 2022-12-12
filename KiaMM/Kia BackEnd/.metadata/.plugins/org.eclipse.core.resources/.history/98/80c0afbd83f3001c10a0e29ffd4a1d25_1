@@ -1,0 +1,88 @@
+package com.materialmanagement.Controller;
+
+import java.util.List;
+import java.util.Map;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.materialmanagement.DAO.EntityDataRepository;
+import com.materialmanagement.Response.Response;
+import com.materialmanagement.Service.EntityDataService;
+
+@RestController
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("/v1/entitydata")
+public class EntityDataController {
+
+	private static final Logger logger = LoggerFactory.getLogger(EntityDataController.class);
+
+	@Autowired
+	private EntityDataService entityDataService;
+	@Autowired
+	private EntityDataRepository entityDataRepository;
+
+	@GetMapping("/getallproductCategory")
+	public ResponseEntity<Response> getAllProductCategory() {
+		List<Map<String, Object>> categoryList = entityDataService.getAllProductCategory();
+		logger.info("categoryList{} " + categoryList);
+		if (null != categoryList && !categoryList.isEmpty()) {
+			return new ResponseEntity<>(new Response(true, "Product Category List Fetched", categoryList),
+					HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(new Response(false, "Unable To Fetch Product Category List", categoryList),
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/getallproductType")
+	public ResponseEntity<Response> getAllProductType() {
+		List<Map<String, Object>> typeList = entityDataService.getAllProductType();
+		logger.info("TypeList{} " + typeList);
+		if (null != typeList && !typeList.isEmpty()) {
+			return new ResponseEntity<>(new Response(true, "Product Type List Fetched", typeList), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(new Response(false, "Unable To Fetch Product Type List", typeList),
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/getvolumn")
+	public ResponseEntity<Response> getVolumn() {
+		List<Map<String, Object>> uomList = entityDataService.getVolumn();
+		logger.info("UOMList{} " + uomList);
+		if (null != uomList && !uomList.isEmpty()) {
+			return new ResponseEntity<>(new Response(true, "UOM List Fetched", uomList), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(new Response(false, "Unable To Fetch UOM List", uomList),
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping("/getallline")
+	public ResponseEntity<Response> getLine() {
+		List<Map<String, Object>> line = entityDataService.getLine();
+		logger.info("LineList{} " + line);
+		if (null != line && !line.isEmpty()) {
+			return new ResponseEntity<>(new Response(true, "Line List Fetched", line), HttpStatus.OK);
+		} else {
+			return new ResponseEntity<>(new Response(false, "Unable To Fetch Line List", line),
+					HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
+	@GetMapping("/getEntityDataIdByCode/{code}")
+	public ResponseEntity<?> getBySequenceType(@PathVariable(value = "code") String code) {
+		int id = entityDataRepository.findEntityDataIdByCode(code);
+		return new ResponseEntity<Object>(id, HttpStatus.OK);
+	}
+
+}

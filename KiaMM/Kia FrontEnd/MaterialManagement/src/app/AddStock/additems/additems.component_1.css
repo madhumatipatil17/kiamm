@@ -1,0 +1,36 @@
+.close-button {
+  height: 38px;
+  width: 80px;
+  border-radius: 5px;
+  border: 2px solid #000000;
+  background-color: #ffffff;
+  color: black;
+  font-weight: 500;
+}
+
+.Send-button {
+  height: 38px;
+  width: 160px;
+  border-radius: 5px;
+  margin: 10px;
+  border: 2px solid #000000;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.items-button {
+  text-align: center;
+}
+
+.items-row {
+  margin-bottom: 2rem;
+}
+
+.p-dropdown {
+  width: 100%;
+}
+
+.items-dropdown {
+  width: 100%;
+}

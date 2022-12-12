@@ -1,0 +1,9 @@
+
+œ
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ı‚’¬HÔRMINORZ
+CODE_SMELL
+¢
+java:S1319"vThe type of "mmProdReqDetailsEntity" should be an interface such as "List" rather than the implementation "ArrayList".(¼²øH×RMINORZ
+CODE_SMELL
+…	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¿‚òàHÚRMINORZ
+CODE_SMELL

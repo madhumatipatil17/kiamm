@@ -1,0 +1,68 @@
+package com.materialmanagement.ServiceImpl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.materialmanagement.DAO.ProdReqDetailsRepository;
+import com.materialmanagement.DAO.ProductMasterRepository;
+import com.materialmanagement.DTO.Order;
+import com.materialmanagement.DTO.OrderDetails;
+import com.materialmanagement.DTO.OrderSummary;
+import com.materialmanagement.Exception.ResourceNotFoundException;
+import com.materialmanagement.Model.MmProdReqDetailsEntity;
+import com.materialmanagement.Model.MmProdReqHeaderEntity;
+import com.materialmanagement.Response.Response;
+
+@Service
+public class OrderService {
+
+	@Autowired
+	ProductReqHeaderService productReqHeaderService;
+
+	@Autowired
+	ProductReqdetailsService productReqdetailsService;
+
+	@Autowired
+	ProductMasterRepository productMasterRepository;
+
+	@Autowired
+	ProdReqDetailsRepository reqDetailsRepository;
+
+	@Transactional(rollbackFor = { Exception.class })
+	public Response placeOrder(Order order) {
+		Response response;
+		MmProdReqHeaderEntity mmProdReqHeaderEntity = order.getMmProdReqHeaderEntity();
+		mmProdReqHeaderEntity = productReqHeaderService.saveProductReqHeader(mmProdReqHeaderEntity);
+		Integer prodReqHeaderId = mmProdReqHeaderEntity.getProdReqHdrId();
+		ArrayList<MmProdReqDetailsEntity> mmProdReqDetailsEntity = order.getMmProdReqDetailsEntity();
+		for (MmProdReqDetailsEntity temp : mmProdReqDetailsEntity) {
+			temp.setProdReqHdrId(prodReqHeaderId);
+		}
+		productReqdetailsService.saveProductReqDetails(mmProdReqDetailsEntity);
+		response = new Response(true, "Your Order has been placed Successfully", mmProdReqHeaderEntity);
+		return response;
+	}
+
+	public List<OrderSummary> getOrderSummary(List<Integer> prodMasterId) {
+		List<OrderSummary> orderSummaries = productMasterRepository.findByProdMasterId(prodMasterId);
+		if (null == orderSummaries || orderSummaries.isEmpty()) {
+			throw new ResourceNotFoundException("Order Summary Not Found");
+		} else {
+			return orderSummaries;
+		}
+	}
+
+	public List<OrderDetails> getOrderDetailsByHeaderID(int prodReqHdrId) {
+		List<OrderDetails> orderDetails = reqDetailsRepository.findByProdReqHdrId(prodReqHdrId);
+		if (null == orderDetails || orderDetails.isEmpty()) {
+			throw new ResourceNotFoundException("Order Details Not Found");
+		} else {
+			return orderDetails;
+		}
+	}
+
+}

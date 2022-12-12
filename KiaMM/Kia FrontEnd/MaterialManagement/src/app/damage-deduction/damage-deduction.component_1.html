@@ -1,0 +1,120 @@
+<div class="header">
+    <div class="row">
+        <div class="container d-flex">
+            <h5 class="heading">Damage Deduction</h5>
+        </div>
+    </div>
+    <p-tabView (onChange)="getHistory()">
+        <p-tabPanel header="Update Damages">
+            <span class="sub-heading">Search material</span>
+            <div class="row row-content">
+                <div class="col-sm-3 p-0">
+                    <h6 class="drop-down-label">Category</h6>
+                    <p-dropdown class="choose-category" [options]="categories" [(ngModel)]="selectedCategory"
+                        placeholder="Choose Category" optionLabel="name" [showClear]="true"
+                        (onChange)="onChangeCategory()"></p-dropdown>
+                </div>
+                <div class="col-sm-3 p-0">
+                    <h6 class="drop-down-label">Type</h6>
+                    <p-dropdown class="choose-type" [options]="types" [(ngModel)]="selectedType"
+                        placeholder="Choose Type" optionLabel="name" [showClear]="true" (onChange)="onChangeType()">
+                    </p-dropdown>
+                </div>
+                <div class="col-sm-3 p-0">
+                    <h6 class="drop-down-label">Item Name/Part Number <span style="color: red;">*</span></h6>
+                    <input type="text" class="search-box" pInputText placeholder="Item Name/Part Number"
+                        [(ngModel)]="model.prodNameOrNum">
+                </div>
+                <div class="col-sm-2 p-0">
+                    <button class="search-button" (click)="getSearchedStock()">Search</button>
+                </div>
+            </div>
+            <div class="second-content">
+                <h6 class="sub-heading">Results found</h6>
+                <p-table [value]="searchedStocks" styleClass="p-datatable-striped" [paginator]="true" [rows]="10"
+                    [showCurrentPageReport]="true"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                    [rowsPerPageOptions]="[10,25,50]">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Item Name</th>
+                            <th>Category</th>
+                            <th>Type</th>
+                            <th>Part Number</th>
+                            <th>Total Quantity</th>
+                            <th></th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-stock>
+                        <tr class="tableRow">
+                            <td>{{stock.prodName}}</td>
+                            <td>{{stock.category}}</td>
+                            <td>{{stock.product_type}}</td>
+                            <td>{{stock.prodNbr}}</td>
+                            <td>{{stock.totQty}}</td>
+                            <td><button class="update-button"
+                                    (click)="updateDamagedStocks(stock)">Update</button></td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+                <p-dialog header="Update" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
+                    <span class="modal-text mb-6">Total Quantity</span><b class="ml-8">:{{model.Quantity}}</b>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <span class="damage-quantity mt-4 mb-4 mr-4">Damage Quantity</span>
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" style="width: 85px;" pInputText placeholder="Quantity" [(ngModel)]="model.damagedQty">
+                        </div>
+                        <div class="col-md-4">
+                            <p-dropdown class="choose-line" [options]="volumes" [(ngModel)]="selectedVolume"
+                                placeholder="Units" optionLabel="name" [showClear]="true" [style]="{width: '8rem'}"
+                                (onChange)="onChangeVolumn()"></p-dropdown>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <p-radioButton name="groupname" value="Y" [(ngModel)]="isReturnable"
+                             (onClick)="checkRadioButton()"></p-radioButton><span class="ml-2 radio-button">Returnable</span>
+                        <p-radioButton class="ml-6" name="groupname" value="N" [(ngModel)]="isReturnable"
+                            (onClick)="checkRadioButton()"></p-radioButton><span
+                            class="ml-2 radio-button">Non-Returnable</span>
+                    </div>
+                    <ng-template pTemplate="footer">
+                        <p-button (click)="addDamagedStock()" label="Update Database" styleClass="p-button-text">
+                        </p-button>
+                    </ng-template>
+                </p-dialog>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="History">
+            <p-table [value]="history" styleClass="p-datatable-striped" [paginator]="true" [rows]="10"
+                [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowsPerPageOptions]="[10,25,50]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Date</th>
+                        <th>Item Name</th>
+                        <th>Category</th>
+                        <th>Type</th>
+                        <th>Part Number</th>
+                        <th>Damaged Units</th>
+                        <th>Policy</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-history>
+                    <tr class="tableRow">
+                        <td>{{history.date | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{history.prodName}}</td>
+                        <td>{{history.category}}</td>
+                        <td>{{history.product_type}}</td>
+                        <td>{{history.partNbr}}</td>
+                        <td>{{history.damagedQty}}</td>
+                        <td *ngIf="history.policy=='Y'">Returnable</td>
+                        <td *ngIf="history.policy=='N'">Non-Returnable</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-tabPanel>
+    </p-tabView>
+</div>

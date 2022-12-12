@@ -1,0 +1,97 @@
+package com.materialmanagement.ServiceImpl;
+
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.materialmanagement.DAO.EntityDataRepository;
+import com.materialmanagement.DAO.OrderSequenceRepository;
+import com.materialmanagement.DAO.ProdReqHeaderRepository;
+import com.materialmanagement.DTO.Myorders;
+import com.materialmanagement.Exception.GlobalException;
+import com.materialmanagement.Model.MmProdReqHeaderEntity;
+import com.materialmanagement.Model.OrderSequence;
+
+@Service
+public class ProductReqHeaderService {
+
+	private static final Logger logger = LoggerFactory.getLogger(ProductReqHeaderService.class);
+
+	@Autowired
+	ProdReqHeaderRepository reqHeaderRepository;
+
+	@Autowired
+	OrderSequenceRepository orderSequenceRepository;
+
+	@Autowired
+	private EntityDataRepository entityDataRepository;
+
+	public MmProdReqHeaderEntity saveProductReqHeader(MmProdReqHeaderEntity prodReqHeader) {
+		MmProdReqHeaderEntity mmProdReqHeaderEntity = new MmProdReqHeaderEntity();
+		String ReqNbr = getRequestNumber();
+		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+		Integer statusId = getEntityDataIdByCode();
+		System.out.println(statusId);
+		if (ReqNbr != null && statusId != null) {
+			mmProdReqHeaderEntity.setReqNbr(ReqNbr);
+			mmProdReqHeaderEntity.setReqDate(timestamp);
+			mmProdReqHeaderEntity.setReqDept(prodReqHeader.getReqDept());
+			mmProdReqHeaderEntity.setReqSection(prodReqHeader.getReqSection());
+			mmProdReqHeaderEntity.setReqLine(prodReqHeader.getReqLine());
+			mmProdReqHeaderEntity.setRequestedBy(prodReqHeader.getRequestedBy());
+			mmProdReqHeaderEntity.setOrderType(prodReqHeader.getOrderType());
+			mmProdReqHeaderEntity.setPrcsStatusId(prodReqHeader.getPrcsStatusId());
+			mmProdReqHeaderEntity.setStatusId(statusId);
+			mmProdReqHeaderEntity.setSicComments(prodReqHeader.getSicComments());
+			mmProdReqHeaderEntity.setAicComments(prodReqHeader.getAicComments());
+			mmProdReqHeaderEntity.setCreatedBy(prodReqHeader.getCreatedBy());
+			mmProdReqHeaderEntity.setCreatedOn(timestamp);
+			logger.info("Product Request Header Details {}" + mmProdReqHeaderEntity);
+			return reqHeaderRepository.save(mmProdReqHeaderEntity);
+		} else {
+			throw new GlobalException("Unable to save Header Details");
+		}
+	}
+
+	@Transactional
+	public String getRequestNumber() {
+		OrderSequence orderDetails = orderSequenceRepository.findbySequenceType("RO");
+		if (orderDetails != null) {
+			String currentDate = new SimpleDateFormat("ddMMyyyy").format(new Date());
+			String reqnumber = orderDetails.getPrefix() + currentDate + (orderDetails.getRunningSequenceNo() + 1);
+			orderSequenceRepository.updateRunningSequenceNo(orderDetails.getRunningSequenceNo() + 1, "RO");
+			return reqnumber;
+		} else {
+			throw new GlobalException(
+					"Unable to generate request number. No details found for Sequence Type Regular Order");
+		}
+	}
+
+	public Integer getEntityDataIdByCode() {
+		Integer id = entityDataRepository.findEntityDataIdByCode("Pending");
+		if (null != id) {
+			return id;
+		} else
+			throw new GlobalException("No Status Id Found for 'Pending' Status Code");
+	}
+
+	public List<Myorders> findallPendingorders() {
+		return reqHeaderRepository.findallPendingorders();
+	}
+
+	public List<Myorders> findallRejectedorders() {
+		return reqHeaderRepository.findallRejectedorders();
+	}
+
+	public List<Myorders> findallRecivedorders() {
+		return reqHeaderRepository.findallRecivedorders();
+	}
+
+}

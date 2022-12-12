@@ -1,0 +1,48 @@
+package com.materialmanagement.Utility;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.materialmanagement.Exception.GlobalException;
+
+public class Util {
+
+	private static final String UPLOADED_FOLDER = "D:\\kia\\mm-services-main\\content\\";
+
+	public static Map<String, String> uploadImageFile(MultipartFile imagefilename) {
+		String imageFullPath = null;
+		Map<String, String> filelocation = new HashMap<String, String>();
+		String failmessage = "FAIL to upload " + imagefilename.getOriginalFilename() + "!";
+		try {
+			byte[] bytes = imagefilename.getBytes();
+			String originalfilename = imagefilename.getOriginalFilename();
+			if (originalfilename != null && !originalfilename.isEmpty()) {
+				if ((originalfilename.contains(".jpg") || originalfilename.contains(".jpeg")
+						|| originalfilename.contains(".png"))
+						|| (originalfilename.contains(".JPG") || originalfilename.contains(".JPEG")
+								|| originalfilename.contains(".PNG"))) {
+					Path path = Paths.get(UPLOADED_FOLDER + originalfilename);
+					Files.copy(imagefilename.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+					imageFullPath = UPLOADED_FOLDER + originalfilename;
+					filelocation.put("location", imageFullPath);
+					filelocation.put("filename", originalfilename);
+					return filelocation;
+				} else {
+					throw new GlobalException("Allowed Files Are .jpg, .jpeg, .png Only");
+				}
+			} else {
+				throw new GlobalException("Invalid File");
+			}
+		} catch (Exception e) {
+			System.out.println("Exception Message-->" + e.getMessage() + "--->" + failmessage);
+			e.printStackTrace();
+			throw new GlobalException(e.getMessage());
+		}
+	}
+}

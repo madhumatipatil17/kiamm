@@ -1,0 +1,276 @@
+<div class="product-request-page">
+  <div class="header">
+    <h5 class="heading">New Product Request</h5>
+    <div class="page-content">
+      <div class="row p-4">
+        <div class="column col-md-3">
+          <i class="pi pi-image image-icon"></i>
+          <span for="exampleFormControlFile1" class="choose-file cursor-pointer">
+            Drop your images here, or
+            select
+            <label class="custom-file-upload select cursor-pointer">
+              <input type="file" id="imgFile" name="imgFile" (change)="onFileChanged($event)"
+                [(ngModel)]="model.imgFile" style="display: none;" />
+              click to browse
+            </label>
+          </span>
+
+          <!-- <div *ngIf="(imgFile.touched || imgFile.dirty) && imgFile.invalid" class="alert alert-danger">
+              <div *ngIf="imgFile.errors?.['required']">
+                Image is mandatory.
+            </div>
+          </div>   -->
+        </div>
+        <div class="col-md-5 request-form">
+          <form #productRequestForm="ngForm">
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Product Name <span style="color: red;">*</span></label>
+                <input type="text" id="prodName" name="prodName" class="form-control" [(ngModel)]="model.prodName"  
+                  required minlength="5" maxlength="100" #prodName="ngModel"> <br>
+
+                <div *ngIf="(prodName.touched || prodName.dirty) && prodName.invalid" class="alert alert-danger">
+                  <div *ngIf="prodName.errors?.['required']">
+                    Product Name is mandatory.
+                  </div>
+                  <div *ngIf="prodName.errors?.['minlength']">
+                    Minimum length should be 5.
+                  </div>
+                  <div *ngIf="prodName.errors?.['maxlength']">
+                    Maximum length should be 100.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label class="form-label">Category<span style="color: red;">*</span></label>
+                <p-dropdown name="prodCategoryId" [options]="categories" [(ngModel)]="selectedCategory"
+                  (onChange)="onChangeCategory()" placeholder="Choose Category" optionLabel="name" [showClear]="true">
+                </p-dropdown>
+                <br>
+
+                <!-- <div *ngIf="(categorieschoose.touched || categorieschoose.dirty) && categorieschoose.invalid" class="alert alert-danger">
+                        <div *ngIf="categories.errors?.['required']">
+                            Category is mandatory field.
+                      </div>
+
+                      <div *ngIf="categorieschoose.errors?.['choosecategory']">
+                          Choose a  Category.
+                     </div>
+                    </div> -->
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Type<span style="color: red;">*</span></label>
+                <p-dropdown name="prodTypeId" [options]="types" [(ngModel)]="selectedType" (onChange)="onChangeType()"
+                  placeholder="Choose type" optionLabel="name" [showClear]="true"></p-dropdown>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Product Code<span style="color: red;">*</span></label>
+                <input type="text" id="prodCode" name="prodCode" class="form-control" [(ngModel)]="model.prodCode"
+                  required minlength="5" maxlength="50" #prodCode="ngModel"><br>
+
+                <div *ngIf="(prodCode.touched || prodCode.dirty) && prodCode.invalid" class="alert alert-danger">
+                  <div *ngIf="prodCode.errors?.['required']">
+                    ProductCode is mandatory.
+                  </div>
+                  <div *ngIf="prodCode.errors?.['minlength']">
+                    Minimum length should be 5.
+                  </div>
+                  <div *ngIf="prodCode.errors?.['maxlength']">
+                    Maximum length should be 50.
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label for="exampleInputEmail1" class="form-label">PartNumber<span style="color: red;">*</span></label>
+                <input type="text" id="partNumber" name="partNumber" class="form-control" [(ngModel)]="model.partNumber"
+                  required minlength="5" maxlength="70" #partNo="ngModel"> <br>
+
+                <div *ngIf="(partNo.touched || partNo.dirty) && partNo.invalid" class="alert alert-danger">
+                  <div *ngIf="partNo.errors?.['required']">
+                    PartNumber is mandatory.
+                  </div>
+                  <div *ngIf="partNo.errors?.['minlength']">
+                    Minimum length should be 5.
+                  </div>
+                  <div *ngIf="partNo.errors?.['maxlength']">
+                    Maximum length should be 70.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Length</label>
+                <input type="text" name="length" id="length" class="form-control" [(ngModel)]="model.length" required
+                  pattern="^[0-9]*$" #length="ngModel">
+                <br>
+
+                <div *ngIf="(length.touched || length.dirty) && length.invalid" class="alert alert-danger">
+                  <div *ngIf="length.errors?.['required']">
+                    Length is mandatory.
+                  </div>
+                  <div *ngIf="length.errors?.['pattern']">
+                    Invalid Length.
+                  </div>
+                </div>
+
+              </div>
+              <div class="col">
+                <label class="form-label">Dia (mm)</label>
+                <input type="text" name="diaMM" class="form-control" id="diaMM" [(ngModel)]="model.diaMM" required
+                  minlength="1" maxlength="40" #diaMM="ngModel">
+                <br>
+
+                <div *ngIf="(diaMM.touched || diaMM.dirty) && diaMM.invalid" class="alert alert-danger">
+                  <div *ngIf="diaMM.errors?.['required']">
+                    DaiMM is mandatory.
+                  </div>
+                  <div *ngIf="diaMM.errors?.['minlength']">
+                    Minimum length should be 1.
+                  </div>
+                  <div *ngIf="diaMM.errors?.['maxlength']">
+                    Maximum length should be 70.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Drive Size</label>
+                <input type="text" id="driveSize" name="driveSize" class="form-control" [(ngModel)]="model.driveSize"
+                  required minlength="1" maxlength="45" #driveSize="ngModel"> <br>
+
+                <div *ngIf="(driveSize.touched || driveSize.dirty) && driveSize.invalid" class="alert alert-danger">
+                  <div *ngIf="driveSize.errors?.['required']">
+                    DriveSize is mandatory.
+                  </div>
+                  <div *ngIf="driveSize.errors?.['minlength']">
+                    Minimum length should be 1.
+                  </div>
+                  <div *ngIf="driveSize.errors?.['maxlength']">
+                    Maximum length should be 45.
+                  </div>
+                </div>
+
+              </div>
+              <div class="col">
+                <label class="form-label">Product No.<span style="color: red;">*</span></label>
+                <input type="text" name="prodMasterId" id="prodMasterId" class="form-control"
+                  [(ngModel)]="model.prodMasterId" required pattern="^[0-9]*$" #prodMasterId="ngModel"> <br>
+
+                <div *ngIf="(prodMasterId.touched || prodMasterId.dirty) && prodMasterId.invalid"
+                  class="alert alert-danger">
+                  <div *ngIf="prodMasterId.errors?.['required']">
+                    ProductNumber is mandatory.
+                  </div>
+                  <div *ngIf="prodMasterId.errors?.['pattern']">
+                    Invalid ProductNumber.
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Min Quantity<span style="color: red;">*</span></label>
+                <input type="te" name="minQty" class="form-control" [(ngModel)]="model.minQty" required
+                  pattern="^[0-9]*$" #minQty="ngModel">
+                <br>
+
+                <div *ngIf="(minQty.touched || minQty.dirty) && minQty.invalid" class="alert alert-danger">
+                  <div *ngIf="minQty.errors?.['required']">
+                    Min Quantity is mandatory.
+                  </div>
+                  <div *ngIf="minQty.errors?.['pattern']">
+                    Invalid Quantity.
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-label">Max Quantity<span style="color: red;">*</span></label>
+                <input type="number" name="maxQty" class="form-control" [(ngModel)]="model.maxQty" required
+                  pattern="^[0-9]*$" #maxQty="ngModel">
+                <br>
+
+                <div *ngIf="(maxQty.touched || maxQty.dirty) && maxQty.invalid" class="alert alert-danger">
+                  <div *ngIf="maxQty.errors?.['required']">
+                    Max Quantity is mandatory.
+                  </div>
+                  <div *ngIf="maxQty.errors?.['pattern']">
+                    Invalid Quantity.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Total Quantity<span style="color: red;">*</span></label>
+                <input type="number" name="totalQty" id="totalQty" class="form-control" [(ngModel)]="model.totalQty"
+                  required pattern="^[0-9]*$" #totalQty="ngModel"> <br>
+
+                <div *ngIf="(totalQty.touched || totalQty.dirty) && totalQty.invalid" class="alert alert-danger">
+                  <div *ngIf="totalQty.errors?.['required']">
+                    Total Quantity is mandatory.
+                  </div>
+                  <div *ngIf="totalQty.errors?.['pattern']">
+                    Invalid Quantity.
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label class="form-label">Volume in<span style="color: red;">*</span></label>
+                <p-dropdown name="valume-in" [options]="volumes" [(ngModel)]="selectedVolume"
+                  (onChange)="onChangeVolumn()" placeholder="Choose metrics" optionLabel="name" [showClear]="true">
+                </p-dropdown>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Attach Pdf</label>
+                <label class="custom-file-upload select cursor-pointer">
+                  <input type="file" style="display: none;" />
+                  <i class="pi pi-paperclip pl-4 cursor-pointer"></i><span class="select pl-2 cursor-pointer">Add
+                    file</span>
+                </label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Description</label>
+                <textarea type="text" name="description" id="description" class="form-control"
+                  [(ngModel)]="model.description" required minlength="30" maxlength="700"
+                  #description="ngModel"></textarea> <br>
+
+                <div *ngIf="(description.touched || description.dirty) && description.invalid"
+                  class="alert alert-danger">
+                  <div *ngIf="description.errors?.['required']">
+                    Description is mandatory.
+                  </div>
+                  <div *ngIf="description.errors?.['minlength']">
+                    Minimum length should be 30.
+                  </div>
+                  <div *ngIf="description.errors?.['maxlength']">
+                    Maximum length should be 700.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+        </div>
+        <div class="row">
+          <div class="col">
+            <button type="submit" (click)="onSubmit()" class="btn bg-dark text-white" style="float: right;">Add
+            </button>
+          </div>
+        </div>
+        <p-toast position="top-left"></p-toast>
+      </div>
+    </div>
+  </div>
+</div>
